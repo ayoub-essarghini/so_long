@@ -1,15 +1,17 @@
 NAME = so_long
-SRCS = so_long.c
+SRCS = so_long.c ft_draw_map.c ft_read_map.c ft_check_valid_map.c ft_img_init.c
 INCLUDES = -I/usr/include -Imlx
 MLX_FLAGS = -L./minilibx-linux -lmlx -lX11 -lXext -lm
 CFLAGS= -Wall -Werror -Wextra
 OBJS = $(SRCS:.c=.o)
+GREEN = \033[0;32m
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 		cc  $(CFLAGS) -o $(NAME) $(OBJS) ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c libftprintf.a $(MLX_FLAGS)
-
+		@echo "$(GREEN)Ready to play 🕹️ ✅"
+ 
 .c.o:
 		cc -Wall -Wextra -Werror -c -o $@ $< $(INCLUDES)
 
