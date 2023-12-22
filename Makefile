@@ -1,5 +1,5 @@
 NAME = so_long
-SRCS = so_long.c ft_draw_map.c ft_read_map.c ft_check_valid_map.c ft_img_init.c
+SRCS = so_long.c ft_draw_map.c ft_read_map.c ft_check_valid_map.c ft_img_init.c ft_map.c ft_mapfunc.c
 INCLUDES = -I/usr/include -Imlx
 MLX_FLAGS = -L./minilibx-linux -lmlx -lX11 -lXext -lm
 CFLAGS= -Wall -Werror -Wextra

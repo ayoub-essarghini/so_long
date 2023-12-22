@@ -1,5 +1,3 @@
-
-
 #include "so_long.h"
 
 void	ft_mapwall(int i, int j, t_data *game)

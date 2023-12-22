@@ -51,5 +51,15 @@ void	check_map(t_data *game);
 int count_maplines(char **av);
 int mapread(t_data *data,char *av[]);
 int check_valid_shape(t_data *data);
+void ft_init(t_data *game);
+void player_position(int i, int j, t_data *game);
+void	ft_mapwall(int i, int j, t_data *game);
+void	ft_map_pla(int i, int j, t_data *game);
+void	ft_mapcoll(int i, int j, t_data *game);
+void	ft_mapexit(int i, int j, t_data *game);
+void	ft_map_path(int i, int j, t_data *game);
+void	ft_collpos(int i, int j, t_data *game);
+int	ft_mapt(t_data *game);
+void	ft_map(t_data *game);
 
 #endif
