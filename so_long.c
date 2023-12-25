@@ -27,7 +27,7 @@ int main(int ac, char **av)
     data.mlx = mlx_init();
     if (!data.mlx)
         return 1;
-    data.win = mlx_new_window(data.mlx, (data.img_width - 1) * 128, (data.img_height) * 128, "SO_LONG");
+    data.win = mlx_new_window(data.mlx, (data.img_width - 1) * 100, (data.img_height) * 100, "SO_LONG");
     if (!data.win)
         return 1;
     ft_init(&data);

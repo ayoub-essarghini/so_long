@@ -68,6 +68,7 @@ void	check_valid_map(t_data *game);
 int count_ln(char **av);
 int read_map(t_data *data,char *av[]);
 int check_valid_rec(t_data *data);
+int isValidPath(t_data *game);
 void ft_init(t_data *game);
 void player_position(int i, int j, t_data *game);
 void	ft_mapwall(int i, int j, t_data *game);
