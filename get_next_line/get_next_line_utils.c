@@ -72,7 +72,7 @@ char	*ft_strjoin(char *temp, char *buff)
 char	*ft_get_line(char *temp)
 {
 	int		i;
-	char	*str;
+	char	*str = NULL;
 
 	i = 0;
 	if (!temp[i])

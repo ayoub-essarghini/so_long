@@ -2,7 +2,7 @@
 
 #include "so_long.h"
 
-int count_maplines(char **av)
+int count_ln(char **av)
 {
     int fd;
     int nbr_lines;
@@ -22,13 +22,13 @@ int count_maplines(char **av)
     return (nbr_lines);
 }
 
-int mapread(t_data *game, char *av[])
+int read_map(t_data *game, char *av[])
 {
     int fd;
     int nbr_lines;
     char *str;
 
-    nbr_lines = count_maplines(av);
+    nbr_lines = count_ln(av);
     if (!nbr_lines)
         return (nbr_lines);
     fd = open(av[1], O_RDONLY);
@@ -48,7 +48,7 @@ int mapread(t_data *game, char *av[])
     return (nbr_lines);
 }
 
-int check_valid_shape(t_data *game)
+int check_valid_rec(t_data *game)
 {
     int i = 0;
     size_t w_len = ft_strlen(game->map.map[0]);

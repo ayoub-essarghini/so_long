@@ -35,11 +35,18 @@ typedef struct s_data{
     t_map map;
     t_player myplayer;
 
+    char *img_p_path;
+    char *img_c_path;
+    char *img_empty_path;
+    char *img_exit_path;
+    char *img_wall_path;
+
     int img_width;
     int img_height;
     int collected;
     int move;
 	int coll_sum;
+
     int p_count;
     int c_count;
     int e_count;
@@ -48,20 +55,20 @@ typedef struct s_data{
     void *img_c;
     void *img_p;
     void *img_e;
-    int x;
-    int y;
+    int i;
+    int j;
     int z;
 
 } t_data;
 
-int	check_lf_map(t_data *game);
+int	check_lr_map(t_data *game);
 int	check_tb_map(t_data *game);
-int	check_all_map(t_data *game);
+int	check_full_map(t_data *game);
 int	check_objects(t_data *game);
-void	check_map(t_data *game);
-int count_maplines(char **av);
-int mapread(t_data *data,char *av[]);
-int check_valid_shape(t_data *data);
+void	check_valid_map(t_data *game);
+int count_ln(char **av);
+int read_map(t_data *data,char *av[]);
+int check_valid_rec(t_data *data);
 void ft_init(t_data *game);
 void player_position(int i, int j, t_data *game);
 void	ft_mapwall(int i, int j, t_data *game);
@@ -73,9 +80,9 @@ void	ft_collpos(int i, int j, t_data *game);
 int	ft_mapt(t_data *game);
 void	ft_map(t_data *game);
 int ft_move(int keycode,t_data *game);
-void	sync_map(int x, int y, t_data *game);
+void	ft_sync_map(int x, int y, t_data *game);
 int	ft_map_update(int x, int y, t_data *game);
-void ft_refresh_game(int x, int y,t_data *game);
+void ft_refresh_game(int i, int j,t_data *game);
 void	checkcollectable(t_data *game);
 void ft_move_up(t_data *game);
 int ft_exit(void);

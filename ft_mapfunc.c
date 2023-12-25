@@ -8,8 +8,10 @@ void	ft_mapwall(int i, int j, t_data *game)
 
 void	ft_map_pla(int i, int j, t_data *game)
 {
+	game->img_p = mlx_xpm_file_to_image(game->mlx,"textures/player1.xpm",&game->i,&game->j);
 	mlx_put_image_to_window(game->mlx, game->win, game->img_p,
 		j * 128, i * 128);
+		//mlx_destroy_image(game->mlx,game->img_p);
 }
 
 void	ft_mapcoll(int i, int j, t_data *game)
@@ -20,6 +22,7 @@ void	ft_mapcoll(int i, int j, t_data *game)
 
 void	ft_mapexit(int i, int j, t_data *game)
 {
+	
 	mlx_put_image_to_window(game->mlx, game ->win, game->img_e,
 		j * 128, i * 128);
 }
