@@ -63,8 +63,8 @@ int check_full_map(t_data *game)
         w = 0;
         while (w < game->img_width - 1)
         {
-            char x = game->map.map[h][w];
-            if (x != '0' && x != '1' && x != 'C' && x != 'P' && x != 'E')
+            char c = game->map.map[h][w];
+            if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E')
             {
                 return -1;
             }
@@ -108,13 +108,13 @@ int check_objects(t_data *game)
 void check_valid_map(t_data *game)
 {
     if (check_full_map(game) == -1)
-        exit(1);
+            exit(1);
     if (check_objects(game) == -1)
-        exit(1);
+            exit(1);
     if (check_lr_map(game) == -1)
-        exit(1);
+            exit(1);
     if (check_tb_map(game) == -1)
-        exit(1);
+            exit(1);
     if (check_valid_rec(game) == -1)
-        exit(1);
+            exit(1);
 }

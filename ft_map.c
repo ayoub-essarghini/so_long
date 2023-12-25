@@ -29,7 +29,7 @@ int	ft_mapt(t_data *game)
 	return (game->z = 0, 0);
 }
 
-void	ft_map(t_data *game)
+void	draw_path(t_data *game)
 {
 	int	i;
 	int	j;

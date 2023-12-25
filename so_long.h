@@ -45,7 +45,6 @@ typedef struct s_data{
     int img_height;
     int collected;
     int move;
-	int coll_sum;
 
     int p_count;
     int c_count;
@@ -78,7 +77,7 @@ void	ft_mapexit(int i, int j, t_data *game);
 void	ft_map_path(int i, int j, t_data *game);
 void	ft_collpos(int i, int j, t_data *game);
 int	ft_mapt(t_data *game);
-void	ft_map(t_data *game);
+void	draw_path(t_data *game);
 int ft_move(int keycode,t_data *game);
 void	ft_sync_map(int x, int y, t_data *game);
 int	ft_map_update(int x, int y, t_data *game);

@@ -113,8 +113,6 @@ void ft_move_right(t_data *game)
 
 int ft_move(int keycode, t_data *game)
 {
-    // The keycode for the 'ESC' key is 53
-    //  printf("Key pressed: %d\n", keycode);
     if (keycode == ESC_KEY)
         exit(0);
     if (keycode == W_KEY)
@@ -125,7 +123,5 @@ int ft_move(int keycode, t_data *game)
         	ft_move_left(game);
 	if (keycode == D_KEY)
         	ft_move_right(game);
-    
-
     return (0);
 }

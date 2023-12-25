@@ -5,7 +5,6 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t			i;
 	unsigned char	*ptr;
-
 	i = 0;
 	ptr = (unsigned char *)b;
 	while (i < len)
@@ -32,7 +31,7 @@ int main(int ac, char **av)
     if (!data.win)
         return 1;
     ft_init(&data);
-    ft_map(&data);
+    draw_path(&data);
     ft_mapt(&data);
     data.z = 1;
     mlx_hook(data.win, 2, (1L << 0),ft_move, &data);
