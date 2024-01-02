@@ -8,7 +8,7 @@ void	ft_mapwall(int i, int j, t_data *game)
 
 void	ft_map_pla(int i, int j, t_data *game)
 {
-	game->img_p = mlx_xpm_file_to_image(game->mlx,"textures/player1.xpm",&game->i,&game->j);
+	game->img_p = mlx_xpm_file_to_image(game->mlx,game->img_p_path,&game->i,&game->j);
 	mlx_put_image_to_window(game->mlx, game->win, game->img_p,
 		j * 100, i * 100);
 }

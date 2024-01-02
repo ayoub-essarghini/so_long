@@ -2,6 +2,7 @@
 
 int canReachToE(t_data *game,int i, int j) {
 
+
     if (i < 0 || i >= game->img_height || j < 0 || j >= game->img_width - 1 
     || game->map.map[i][j] == '1' || game->map.map[i][j] == 'V') {
      return (0);
@@ -11,13 +12,10 @@ int canReachToE(t_data *game,int i, int j) {
         return (1);
 
      game->map.map[i][j] = 'V';
-  
-
     int res = (canReachToE(game,i - 1,j)||
               canReachToE(game,i + 1,j) ||
               canReachToE(game,i,j - 1) ||
               canReachToE(game,i,j + 1));
-
     if (res)
     {
     return (1);
@@ -33,9 +31,14 @@ int canReachToAllC(t_data *game,int i, int j) {
      return (0);
     }
 
+    ft_printf("%d",game->c_count);
+
     if (game->map.map[i][j] == 'C')
     {
-        return (1);
+        game->c_count--;
+        if (game->c_count == 0)
+            return (1);
+        
     }
      game->map.map[i][j] = 'V';
   

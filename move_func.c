@@ -12,8 +12,6 @@ void ft_move_up(t_data *game)
 		game->myplayer.v--;
 		if (game->map.map[i - 1][j] == 'C')
 			    game->collected--;
-		// if (game->collected == 0)
-		// 	ft_checkopen(game);
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -40,8 +38,6 @@ void ft_move_down(t_data *game)
 		game->myplayer.v++;
 		if (game->map.map[i + 1][j] == 'C')
 			    game->collected--;
-		// if (game->collected == 0)
-		// 	ft_checkopen(game);
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -65,11 +61,10 @@ void ft_move_left(t_data *game)
 	j = game->myplayer.h;
 	if (game->map.map[i ][j - 1] == '0' || game->map.map[i][j - 1] == 'C')
 	{
+		game->img_p_path = "textures/player_left.xpm";
 		game->myplayer.h--;
 		if (game->map.map[i][j - 1] == 'C')
 			    game->collected--;
-		// if (game->collected == 0)
-		// 	ft_checkopen(game);
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
