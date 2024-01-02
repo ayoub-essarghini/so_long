@@ -24,6 +24,7 @@ int main(int ac, char **av)
     ft_memset(&data, 0, sizeof(t_data));
     read_map(&data, av);
     check_valid_map(&data);
+    read_map(&data,av);
     data.mlx = mlx_init();
     if (!data.mlx)
         return 1;
@@ -32,11 +33,10 @@ int main(int ac, char **av)
         return 1;
     ft_init(&data);
     draw_path(&data);
-    ft_mapt(&data);
-    data.z = 1;
+    draw_map(&data);
     mlx_hook(data.win, 2, (1L << 0),ft_move, &data);
     mlx_hook(data.win, 17, (1L << 17),ft_exit, &data);
-    mlx_loop_hook(data.mlx,ft_mapt,&data);
+    //  mlx_loop_hook(data.mlx,draw_map,&data);
     mlx_loop(data.mlx);
     return 0;
 }

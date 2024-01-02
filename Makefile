@@ -1,8 +1,9 @@
 NAME = so_long
 SRCS = so_long.c ft_read_map.c ft_check_valid_map.c \
-ft_img_init.c ft_map.c ft_mapfunc.c move_func.c ft_move_utils.c 
+ft_img_init.c ft_map.c ft_mapfunc.c move_func.c ft_move_utils.c \
+check_valid_path.c
 INCLUDES = -I/usr/include -Imlx
-MLX_FLAGS = -L./minilibx-linux -lmlx -lX11 -lXext -lm -fsanitize=address
+MLX_FLAGS = -L./minilibx-linux -lmlx -lX11 -lXext -lm #-fsanitize=address
 CFLAGS= -Wall -Werror -Wextra
 OBJS = $(SRCS:.c=.o)
 GREEN = \033[0;32m

@@ -1,47 +1,5 @@
 #include "so_long.h"
 
-int isValidPath(t_data *game) {
-    // Check if coordinates are within bounds
-
-    int i = 0;
-    int j = 0;
-    if (i < 0 || i >= game->img_width - 1 || j < 0 || j >= game->img_height) {
-        return 0;
-    }
-
-    // Check if the current position is 'E'
-    if (game->map.map[i][j] == 'E') {
-        return 1;
-    }
-
-    // Mark the current position as visited
-    game->map.map[i][j] = 'V'; // 'V' stands for visited
-
-    // Recursively check the neighboring pixels
-    int connected = 0;
-    if ((game->map.map[i + 1][j] == '0' || game->map.map[i + 1][j] == 'E') && connected == 0) { // right
-        i = i + 1;
-        connected = 1 || isValidPath(game);
-    }
-    if ((game->map.map[i - 1][j] == '0' || game->map.map[i - 1][j] == 'E') && connected == 0) { // left
-        i = i - 1;
-        connected = 1 || isValidPath(game);
-    }
-    if ((game->map.map[i][j + 1] == '0' || game->map.map[i][j + 1] == 'E') && connected == 0) { // up
-        j = j + 1;
-        connected = 1 || isValidPath(game);
-    }
-    if ((game->map.map[i][j - 1] == '0' || game->map.map[i][j - 1] == 'E') && connected == 0) { // down
-        j = j - 1;
-        connected = 1 || isValidPath(game);
-    }
-
-    return connected;
-}
-
-
-
-
 int check_lr_map(t_data *game)
 {
     int h;
@@ -131,7 +89,12 @@ int check_objects(t_data *game)
         while (w < game->img_width)
         {
             if (game->map.map[h][w] == 'P')
+            {
+                game->myplayer.h = h;
+                game->myplayer.v = w;
                 game->p_count++;
+            }
+               
             else if (game->map.map[h][w] == 'C')
                 game->c_count++;
             else if (game->map.map[h][w] == 'E')
@@ -141,7 +104,7 @@ int check_objects(t_data *game)
         h++;
     }
 
-    if (game->p_count != 1 || game->e_count < 1 || game->c_count < 1)
+    if (game->p_count != 1 || game->e_count != 1 || game->c_count < 1)
         return -1;
     else
         return 0;
@@ -159,8 +122,17 @@ void check_valid_map(t_data *game)
             exit(1);
     if (check_valid_rec(game) == -1)
             exit(1);
-    if (isValidPath(game) == 0)
+        int i = game->myplayer.h;
+        int j = game->myplayer.v;
+    if (canReachToE(game,i,j) == 0)
     {
+       ft_printf("the way is closed");
         exit(1);
-    }           
+    }
+    // if (canReachToAllC(game,i,j) == 0)
+    // {
+    //    ft_printf("the way is closed to c");
+    //     exit(1);
+    // }
+           
 }
