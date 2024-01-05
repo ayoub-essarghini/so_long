@@ -5,8 +5,6 @@ int ft_exit(void)
 	exit(0);
 }
 
-
-
 int ft_map_update(int x, int y, t_data *game)
 {
 	int	i;

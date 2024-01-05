@@ -110,8 +110,29 @@ int check_objects(t_data *game)
         return 0;
 }
 
+char **map_dup(char **map,int len)
+{
+    char **map2;
+    int i;
+    i = 0;
+
+    map2 = (char **)malloc(len * sizeof(char *));
+      while (i < len)
+    {
+        map2[i] = strdup(map[i]);
+        i++;
+    }
+    map2[i] = NULL;
+    return map2;
+}
+
 void check_valid_map(t_data *game)
 {
+    char **map2;
+    char **map1;
+
+    map1 = map_dup(game->map.map,game->img_height);
+    map2 = map_dup(game->map.map,game->img_height);
      if (check_full_map(game) == -1)
             exit(1);
     if (check_objects(game) == -1)
@@ -122,17 +143,9 @@ void check_valid_map(t_data *game)
             exit(1);
     if (check_valid_rec(game) == -1)
             exit(1);
-        int i = game->myplayer.h;
-        int j = game->myplayer.v;
-    if (canReachToE(game,i,j) == 0)
-    {
-       ft_printf("the way is closed");
-        exit(1);
-    }
-    // if (canReachToAllC(game,i,j) == 0)
-    // {
-    //    ft_printf("the way is closed to c");
-    //     exit(1);
-    // }
-           
+        int k = game->myplayer.h;
+        int l = game->myplayer.v;
+        int a = k;
+        int b = l;
+   haveAccess(game,map1,map2,k,l,a,b);
 }

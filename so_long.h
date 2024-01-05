@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include<string.h>
 
 #define ESC_KEY 65307
 #define A_KEY 97
@@ -67,8 +68,8 @@ void	check_valid_map(t_data *game);
 int count_ln(char **av);
 int read_map(t_data *data,char *av[]);
 int check_valid_rec(t_data *data);
-int canReachToE(t_data *game,int i, int j);
-int canReachToAllC(t_data *game,int i, int j);
+int canReachToE(t_data *game,char **map,int i, int j);
+int canReachToAllC(t_data *game,char **map,int i, int j);
 void ft_init(t_data *game);
 void player_position(int i, int j, t_data *game);
 void	ft_mapwall(int i, int j, t_data *game);
@@ -85,6 +86,7 @@ int	ft_map_update(int x, int y, t_data *game);
 void ft_refresh_game(int i, int j,t_data *game);
 void	checkcollectable(t_data *game);
 void ft_move_up(t_data *game);
+void haveAccess(t_data *game,char **map1,char **map2,int k,int l,int a,int b);
 int ft_exit(void);
 
 #endif
