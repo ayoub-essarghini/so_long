@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_func.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/06 16:50:45 by aes-sarg          #+#    #+#             */
+/*   Updated: 2024/01/06 16:58:24 by aes-sarg         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
-void ft_move_up(t_data *game)
+void	ft_move_up(t_data *game)
 {
-   	int	i;
+	int	i;
 	int	j;
 
 	i = game->myplayer.v;
@@ -11,7 +22,7 @@ void ft_move_up(t_data *game)
 	{
 		game->myplayer.v--;
 		if (game->map.map[i - 1][j] == 'C')
-			    game->collected--;
+			game->collected--;
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -26,9 +37,9 @@ void ft_move_up(t_data *game)
 	}
 }
 
-void ft_move_down(t_data *game)
+void	ft_move_down(t_data *game)
 {
-   	int	i;
+	int	i;
 	int	j;
 
 	i = game->myplayer.v;
@@ -37,7 +48,7 @@ void ft_move_down(t_data *game)
 	{
 		game->myplayer.v++;
 		if (game->map.map[i + 1][j] == 'C')
-			    game->collected--;
+			game->collected--;
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -52,19 +63,19 @@ void ft_move_down(t_data *game)
 	}
 }
 
-void ft_move_left(t_data *game)
+void	ft_move_left(t_data *game)
 {
-   	int	i;
+	int	i;
 	int	j;
 
 	i = game->myplayer.v;
 	j = game->myplayer.h;
-	if (game->map.map[i ][j - 1] == '0' || game->map.map[i][j - 1] == 'C')
+	if (game->map.map[i][j - 1] == '0' || game->map.map[i][j - 1] == 'C')
 	{
 		game->img_p_path = "textures/player_left.xpm";
 		game->myplayer.h--;
 		if (game->map.map[i][j - 1] == 'C')
-			    game->collected--;
+			game->collected--;
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -79,19 +90,18 @@ void ft_move_left(t_data *game)
 	}
 }
 
-void ft_move_right(t_data *game)
+void	ft_move_right(t_data *game)
 {
-   	int	i;
+	int	i;
 	int	j;
 
 	i = game->myplayer.v;
 	j = game->myplayer.h;
-	if (game->map.map[i ][j + 1] == '0' || game->map.map[i][j + 1] == 'C')
+	if (game->map.map[i][j + 1] == '0' || game->map.map[i][j + 1] == 'C')
 	{
 		game->myplayer.h++;
 		if (game->map.map[i][j + 1] == 'C')
-			    game->collected--;
-		
+			game->collected--;
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -106,17 +116,17 @@ void ft_move_right(t_data *game)
 	}
 }
 
-int ft_move(int keycode, t_data *game)
+int	ft_move(int keycode, t_data *game)
 {
-    if (keycode == ESC_KEY)
-        exit(0);
-    if (keycode == W_KEY)
-        	ft_move_up(game);
+	if (keycode == ESC_KEY)
+		exit(0);
+	if (keycode == W_KEY)
+		ft_move_up(game);
 	if (keycode == S_KEY)
-        	ft_move_down(game);
+		ft_move_down(game);
 	if (keycode == A_KEY)
-        	ft_move_left(game);
+		ft_move_left(game);
 	if (keycode == D_KEY)
-        	ft_move_right(game);
-    return (0);
+		ft_move_right(game);
+	return (0);
 }
