@@ -99,6 +99,7 @@ void	ft_move_right(t_data *game)
 	j = game->myplayer.h;
 	if (game->map.map[i][j + 1] == '0' || game->map.map[i][j + 1] == 'C')
 	{
+		game->img_p_path = "textures/player1.xpm";
 		game->myplayer.h++;
 		if (game->map.map[i][j + 1] == 'C')
 			game->collected--;
