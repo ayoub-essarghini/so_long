@@ -96,3 +96,9 @@ void	free_maps(char **map1, char **map2)
 	free(map2);
 	free(map1);
 }
+
+void check_open_door(game)
+{
+
+	
+}

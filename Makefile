@@ -11,7 +11,7 @@ GREEN = \033[0;32m
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		cc  $(CFLAGS) -o $(NAME) $(OBJS) ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c libftprintf.a $(MLX_FLAGS)
+		cc  $(CFLAGS) -o $(NAME) $(OBJS) ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c ./ft_printf/libftprintf.a $(MLX_FLAGS)
 		@echo "$(GREEN)Ready to play 🕹️ ✅"
  
 .c.o:

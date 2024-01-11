@@ -23,6 +23,7 @@ void	ft_move_up(t_data *game)
 		game->myplayer.v--;
 		if (game->map.map[i - 1][j] == 'C')
 			game->collected--;
+		check_open_door(game);
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -49,6 +50,7 @@ void	ft_move_down(t_data *game)
 		game->myplayer.v++;
 		if (game->map.map[i + 1][j] == 'C')
 			game->collected--;
+		check_open_door(game);
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -76,6 +78,7 @@ void	ft_move_left(t_data *game)
 		game->myplayer.h--;
 		if (game->map.map[i][j - 1] == 'C')
 			game->collected--;
+		check_open_door(game);
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);
@@ -103,6 +106,7 @@ void	ft_move_right(t_data *game)
 		game->myplayer.h++;
 		if (game->map.map[i][j + 1] == 'C')
 			game->collected--;
+		check_open_door(game);
 		ft_refresh_game(i, j, game);
 		game->move++;
 		ft_printf("%d\n", game->move);

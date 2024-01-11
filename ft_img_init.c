@@ -14,6 +14,7 @@
 void	ft_init(t_data *game)
 {
 	game->img_p_path = "textures/player1.xpm";
+	game->img_exit_path = "textures/exit.xpm";
 	game->img_empty = mlx_xpm_file_to_image(game->mlx,
 			"textures/empty.xpm", &game->i, &game->j);
 	game->img_wall = mlx_xpm_file_to_image(game->mlx,
@@ -21,7 +22,7 @@ void	ft_init(t_data *game)
 	game->img_c = mlx_xpm_file_to_image(game->mlx,
 			"textures/collect.xpm", &game->i, &game->j);
 	game->img_e = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit.xpm", &game->i, &game->j);
+			game->img_exit_path, &game->i, &game->j);
 }
 
 void	player_position(int i, int j, t_data *game)

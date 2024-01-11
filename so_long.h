@@ -49,10 +49,7 @@ typedef struct s_data
 	t_map		map;
 	t_player	myplayer;
 	char		*img_p_path;
-	char		*img_c_path;
-	char		*img_empty_path;
 	char		*img_exit_path;
-	char		*img_wall_path;
 	int			img_width;
 	int			img_height;
 	int			collected;
