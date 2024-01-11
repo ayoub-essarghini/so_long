@@ -25,7 +25,6 @@ int	main(int ac, char **av)
 	ft_memset(&data, 0, sizeof(t_data));
 	read_map(&data, av);
 	check_valid_map(&data);
-	read_map(&data, av);
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, (data.img_width - 1) * 100,
 			(data.img_height) * 100, "SO_LONG");

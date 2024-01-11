@@ -80,7 +80,7 @@ void	have_access_e(t_data *game, char **map1, int k, int l)
 {
 	if (can_reach_e(game, map1, k, l) == 0)
 	{
-		ft_printf("The player cannot reach to door\n");
+		ft_printf("the way is closed\n");
 		exit(1);
 	}
 }
@@ -89,7 +89,7 @@ void	have_access_c(t_data *game, char **map2, int a, int b)
 {
 	if (can_reach_to_all_c(game, map2, a, b) == 0)
 	{
-		ft_printf("The player cannot reach to all c objects");
+		ft_printf("the way is closed");
 		exit(1);
 	}
 }

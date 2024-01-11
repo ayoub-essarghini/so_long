@@ -82,6 +82,7 @@ int		check_valid_rec(t_data *data);
 int		can_reach_e(t_data *game, char **map, int i, int j);
 int		can_reach_to_all_c(t_data *game, char **map, int i, int j);
 void	ft_init(t_data *game);
+void	free_maps(char **map1, char **map2);
 void	player_position(int i, int j, t_data *game);
 void	ft_mapwall(int i, int j, t_data *game);
 void	ft_map_pla(int i, int j, t_data *game);

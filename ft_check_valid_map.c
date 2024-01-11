@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:06:04 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/06 16:15:03 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:50:31 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -140,4 +140,5 @@ void	check_valid_map(t_data *game)
 	l = game->myplayer.v;
 	have_access_e(game, map1, k, l);
 	have_access_c(game, map2, k, l);
+	free_maps(map1, map2);
 }

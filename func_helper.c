@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:23:16 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/06 16:50:14 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:52:49 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -80,4 +80,19 @@ char	*ft_strdup(char *s)
 	}
 	d[i] = 0;
 	return (d);
+}
+
+void	free_maps(char **map1, char **map2)
+{
+	int	i;
+
+	i = 0;
+	while (map2[i] && map1[i])
+	{
+		free(map2[i]);
+		free(map1[i]);
+		i++;
+	}
+	free(map2);
+	free(map1);
 }

@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:37:32 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/06 16:40:21 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:52:18 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -74,6 +74,9 @@ void	ft_refresh_game(int i, int j, t_data *game)
 
 void	checkcollectable(t_data *game)
 {
+	int	i;
+
+	i = 0;
 	if (game->collected == 0)
 	{
 		ft_printf("\033[0;32m   ( )\n");
@@ -84,7 +87,12 @@ void	checkcollectable(t_data *game)
 		ft_printf("   ( )\n");
 		ft_printf("    H\n");
 		ft_printf("   _H_\n");
-		printf("\nYou Win!\n");
+		ft_printf("\nYou Win!\n");
+		while (i < game->img_height)
+		{
+			free(game->map.map[i]);
+			i++;
+		}
 		free(game->map.map);
 		exit(0);
 	}
