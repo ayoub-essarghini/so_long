@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:23:16 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/11 16:52:49 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/12 21:24:20 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -95,10 +95,4 @@ void	free_maps(char **map1, char **map2)
 	}
 	free(map2);
 	free(map1);
-}
-
-void check_open_door(game)
-{
-
-	
 }

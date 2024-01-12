@@ -47,7 +47,7 @@ void	draw_path(t_data *game)
 	j = 0;
 	while (i < game->img_height)
 	{
-		while (j < game->img_width - 1)
+		while (j < game->img_width)
 		{
 			ft_map_path(i, j, game);
 			j++;

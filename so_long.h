@@ -26,10 +26,6 @@
 # define D_KEY 100
 # define S_KEY 115
 # define W_KEY 119
-# define TOP_KEY 65362
-# define BOTTOM_KEY 65364
-# define LEFT_KEY 65361
-# define RIGHT_KEY 65363
 
 typedef struct s_player
 {
@@ -72,8 +68,8 @@ int		check_full_map(t_data *game);
 int		check_objects(t_data *game);
 int		ft_strncmp(const char *s1, const char *s2, unsigned int n);
 void	check_valid_map(t_data *game);
+void	allocate_and_free_temp(t_data *game, int nbr_lines, char *temp);
 void	*ft_memset(void *b, int c, size_t len);
-int		count_ln(char **av);
 int		read_map(t_data *data, char *av[]);
 int		check_valid_rec(t_data *data);
 int		can_reach_e(t_data *game, char **map, int i, int j);
@@ -94,6 +90,12 @@ int		ft_move(int keycode, t_data *game);
 void	ft_sync_map(int x, int y, t_data *game);
 int		ft_map_update(int x, int y, t_data *game);
 void	ft_refresh_game(int i, int j, t_data *game);
+char	**ft_free(char **s, int j);
+int		count_words(char const *s, char c);
+char	*ft_word(const char *str, int start, int end);
+char	**ft_sep_word(const char *str, char c, int l);
+char	**ft_split(char const *s, char c);
+int		is_valid_map(char *str);
 void	checkcollectable(t_data *game);
 void	ft_move_up(t_data *game);
 void	get_p_position(t_data *game);

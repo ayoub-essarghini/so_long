@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	read_map(&data, av);
 	check_valid_map(&data);
 	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, (data.img_width - 1) * 100,
+	data.win = mlx_new_window(data.mlx, (data.img_width) * 100,
 			(data.img_height) * 100, "SO_LONG");
 	ft_init(&data);
 	draw_path(&data);

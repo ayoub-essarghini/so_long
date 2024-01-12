@@ -6,29 +6,53 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:41:06 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/06 16:48:48 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/12 21:21:39 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-int	count_ln(char **av)
+int	is_valid_map(char *str)
 {
-	int		fd;
-	int		nbr_lines;
-	char	*str;
+	int	i;
 
-	fd = open(av[1], O_RDONLY);
-	nbr_lines = 0;
-	while (1)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		str = get_next_line(fd);
-		if (str == NULL)
-			break ;
-		free(str);
-		nbr_lines++;
+		if (str[i] == '\n' && str[i + 1] == '\n')
+		{
+			ft_printf("Error\ninvalid map");
+			return (0);
+		}
+		i++;
 	}
-	close(fd);
-	return (nbr_lines);
+	return (1);
+}
+
+void	allocate_and_free_temp(t_data *game, int nbr_lines, char *temp)
+{
+	char	**temp_map;
+	int		i;
+
+	i = 0;
+	game->map.map = (char **)malloc((nbr_lines) * sizeof(char *));
+	if (is_valid_map(temp) == 0)
+	{
+		free(temp);
+		exit(0);
+	}
+	temp_map = ft_split(temp, '\n');
+	while (i < nbr_lines)
+	{
+		game->map.map[i] = ft_strdup(temp_map[i]);
+		i++;
+	}
+	i = 0;
+	while (temp_map[i] != NULL)
+	{
+		free(temp_map[i]);
+		i++;
+	}
+	free(temp_map);
 }
 
 int	read_map(t_data *game, char *av[])
@@ -36,24 +60,27 @@ int	read_map(t_data *game, char *av[])
 	int		fd;
 	int		nbr_lines;
 	char	*str;
+	char	*temp;
 
-	nbr_lines = count_ln(av);
-	if (!nbr_lines)
-		return (nbr_lines);
 	fd = open(av[1], O_RDONLY);
-	game->map.map = (char **)malloc(nbr_lines * sizeof(char *));
 	nbr_lines = 0;
+	temp = NULL;
 	while (1)
 	{
 		str = get_next_line(fd);
 		if (str == NULL)
+		{
 			break ;
-		game->map.map[nbr_lines] = str;
+		}
 		nbr_lines++;
+		temp = ft_strjoin(temp, str);
+		free(str);
 	}
 	close(fd);
+	allocate_and_free_temp(game, nbr_lines, temp);
 	game->img_height = nbr_lines;
 	game->img_width = ft_strlen(game->map.map[0]);
+	free(temp);
 	return (nbr_lines);
 }
 
@@ -67,9 +94,7 @@ int	check_valid_rec(t_data *game)
 	while (i < game->img_height)
 	{
 		if (ft_strlen(game->map.map[i]) != w_len)
-		{
 			return (-1);
-		}
 		i++;
 	}
 	return (0);

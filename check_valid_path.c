@@ -32,7 +32,7 @@ int	can_reach_e(t_data *game, char **map, int i, int j)
 	int	res;
 
 	if (i < 0 || i >= game->img_height
-		|| j < 0 || j >= game->img_width - 1
+		|| j < 0 || j >= game->img_width
 		|| map[i][j] == '1' || map[i][j] == 'V')
 	{
 		return (0);
@@ -54,7 +54,7 @@ int	can_reach_to_all_c(t_data *game, char **map, int i, int j)
 	int	res;
 
 	if (i < 0 || i >= game->img_height || j < 0
-		|| j >= game->img_width - 1
+		|| j >= game->img_width
 		|| map[i][j] == '1'
 		|| map[i][j] == 'V')
 	{
@@ -81,7 +81,7 @@ void	have_access_e(t_data *game, char **map1, int k, int l)
 	if (can_reach_e(game, map1, k, l) == 0)
 	{
 		ft_printf("the way is closed\n");
-		exit(1);
+		exit(100);
 	}
 }
 
@@ -89,7 +89,7 @@ void	have_access_c(t_data *game, char **map2, int a, int b)
 {
 	if (can_reach_to_all_c(game, map2, a, b) == 0)
 	{
-		ft_printf("the way is closed");
-		exit(1);
+		ft_printf("the way is closed\n");
+		exit(101);
 	}
 }
