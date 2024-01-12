@@ -17,7 +17,7 @@ char	**map_dup(char **map, int len)
 	int		i;
 
 	i = 0;
-	map2 = (char **)malloc(len * sizeof(char *));
+	map2 = (char **)malloc((len + 1) * sizeof(char *));
 	while (i < len)
 	{
 		map2[i] = ft_strdup(map[i]);
@@ -80,8 +80,8 @@ void	have_access_e(t_data *game, char **map1, int k, int l)
 {
 	if (can_reach_e(game, map1, k, l) == 0)
 	{
-		ft_printf("the way is closed\n");
-		exit(100);
+		ft_printf("the way is closed to e\n");
+		exit(1);
 	}
 }
 
@@ -90,6 +90,6 @@ void	have_access_c(t_data *game, char **map2, int a, int b)
 	if (can_reach_to_all_c(game, map2, a, b) == 0)
 	{
 		ft_printf("the way is closed\n");
-		exit(101);
+		exit(1);
 	}
 }

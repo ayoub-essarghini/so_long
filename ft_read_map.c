@@ -16,6 +16,11 @@ int	is_valid_map(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+	{
+		ft_printf("Error\ninvalid map");
+			return (0);
+	}
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\n' && str[i + 1] == '\n')
@@ -34,7 +39,7 @@ void	allocate_and_free_temp(t_data *game, int nbr_lines, char *temp)
 	int		i;
 
 	i = 0;
-	game->map.map = (char **)malloc((nbr_lines) * sizeof(char *));
+	game->map.map = (char **)malloc((nbr_lines + 1) * sizeof(char *));
 	if (is_valid_map(temp) == 0)
 	{
 		free(temp);
@@ -46,8 +51,9 @@ void	allocate_and_free_temp(t_data *game, int nbr_lines, char *temp)
 		game->map.map[i] = ft_strdup(temp_map[i]);
 		i++;
 	}
+	game->map.map[i] = NULL;
 	i = 0;
-	while (temp_map[i] != NULL)
+	while (i < nbr_lines)
 	{
 		free(temp_map[i]);
 		i++;

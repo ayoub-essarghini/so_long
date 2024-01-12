@@ -41,20 +41,19 @@ int	check_tb_map(t_data *game)
 	int	w;
 
 	h = 0;
-	w = game->img_width - 1;
-	while (h < game->img_height)
+	w = 0;
+	while (w < game->img_width)
 	{
 		if (game->map.map[h][w] != '1')
 		{
 			return (-1);
 		}
-		h++;
+		w++;
 	}
-	h = 0;
 	w = 0;
 	while (w < game->img_width)
 	{
-		if (game->map.map[h][w] != '1')
+		if (game->map.map[game->img_height - 1][w] != '1')
 		{
 			return (-1);
 		}
@@ -127,18 +126,18 @@ void	check_valid_map(t_data *game)
 	map2 = map_dup(game->map.map, game->img_height);
 	get_p_position(game);
 	if (check_full_map(game) == -1)
-		exit(10);
+		exit(1);
 	if (check_objects(game) == -1)
-		exit(11);
+		exit(1);
 	if (check_lr_map(game) == -1)
-		exit(12);
+		exit(1);
 	if (check_tb_map(game) == -1)
-		exit(13);
+		exit(1);
 	if (check_valid_rec(game) == -1)
-		exit(14);
+		exit(1);
 	k = game->myplayer.h;
 	l = game->myplayer.v;
-	have_access_e(game, map1, k, l);
-	have_access_c(game, map2, k, l);
+	// have_access_e(game, map1, k, l);
+	// have_access_c(game, map2, k, l);
 	free_maps(map1, map2);
 }
