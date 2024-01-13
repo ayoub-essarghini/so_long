@@ -19,7 +19,6 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
 
 # define ESC_KEY 65307
 # define A_KEY 97

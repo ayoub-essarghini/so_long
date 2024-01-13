@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:41:06 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/12 21:21:39 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:12:44 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -19,7 +19,7 @@ int	is_valid_map(char *str)
 	if (!str)
 	{
 		ft_printf("Error\ninvalid map");
-			return (0);
+		return (0);
 	}
 	while (str[i] != '\0')
 	{

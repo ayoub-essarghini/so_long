@@ -17,11 +17,11 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		ft_printf("please insert map");
+		ft_printf("Error\nplease insert map");
 		exit(0);
 	}
 	if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".ber", 4))
-		return (perror("Map path not valid"), 1);
+		return (perror("Error\ninvalid map path"), 1);
 	ft_memset(&data, 0, sizeof(t_data));
 	read_map(&data, av);
 	check_valid_map(&data);

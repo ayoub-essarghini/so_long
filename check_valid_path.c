@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 14:43:03 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/06 15:47:23 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:10:27 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -80,7 +80,7 @@ void	have_access_e(t_data *game, char **map1, int k, int l)
 {
 	if (can_reach_e(game, map1, k, l) == 0)
 	{
-		ft_printf("the way is closed to e\n");
+		ft_printf("Error\nthe way is closed to E\n");
 		exit(1);
 	}
 }
@@ -89,7 +89,7 @@ void	have_access_c(t_data *game, char **map2, int a, int b)
 {
 	if (can_reach_to_all_c(game, map2, a, b) == 0)
 	{
-		ft_printf("the way is closed\n");
+		ft_printf("Error\nthe way is closed to C\n");
 		exit(1);
 	}
 }

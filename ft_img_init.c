@@ -25,7 +25,7 @@ void	ft_init(t_data *game)
 			game->img_exit_path, &game->i, &game->j);
 	if (!game->img_c || !game->img_wall || !game->img_e || !game->img_empty)
 	{
-		ft_printf("Error\nin image\n");
+		ft_printf("Error\ninvalid image\n");
 		exit(1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:06:04 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/11 16:50:31 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:11:31 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -21,16 +21,21 @@ int	check_lr_map(t_data *game)
 	while (h < game->img_height)
 	{
 		if (game->map.map[h][w] != '1')
+		{
+			ft_printf("Error\nLeft line in map is invalid");
 			return (-1);
+		}
 		h++;
 	}
 	h = 0;
-	w = 0;
-	while (w < game->img_width)
+	w = game->img_width - 1;
+	while (++h < game->img_height)
 	{
 		if (game->map.map[h][w] != '1')
+		{
+			ft_printf("Error\nRight line in map is invalid");
 			return (-1);
-		w++;
+		}
 	}
 	return (0);
 }
@@ -46,6 +51,7 @@ int	check_tb_map(t_data *game)
 	{
 		if (game->map.map[h][w] != '1')
 		{
+			ft_printf("Error\nTop line in map is invalid");
 			return (-1);
 		}
 		w++;
@@ -55,6 +61,7 @@ int	check_tb_map(t_data *game)
 	{
 		if (game->map.map[game->img_height - 1][w] != '1')
 		{
+			ft_printf("Error\nBottom line in map is invalid");
 			return (-1);
 		}
 		w++;
@@ -77,6 +84,7 @@ int	check_full_map(t_data *game)
 			c = game->map.map[h][w];
 			if (c != '0' && c != '1' && c != 'C' && c != 'P' && c != 'E')
 			{
+				ft_printf("Error\ninvalid object");
 				return (-1);
 			}
 			w++;
@@ -92,10 +100,10 @@ int	check_objects(t_data *game)
 	int	w;
 
 	h = 0;
-	while (h < game->img_height)
+	while (++h < game->img_height)
 	{
 		w = 0;
-		while (w < game->img_width)
+		while (++w < game->img_width)
 		{
 			if (game->map.map[h][w] == 'P')
 			{
@@ -105,14 +113,14 @@ int	check_objects(t_data *game)
 				game->c_count++;
 			else if (game->map.map[h][w] == 'E')
 				game->e_count++;
-			w++;
 		}
-		h++;
 	}
 	if (game->p_count != 1 || game->e_count != 1 || game->c_count < 1)
+	{
+		ft_printf("Error\ninvalid base object");
 		return (-1);
-	else
-		return (0);
+	}
+	return (0);
 }
 
 void	check_valid_map(t_data *game)
@@ -137,7 +145,7 @@ void	check_valid_map(t_data *game)
 		exit(1);
 	k = game->myplayer.h;
 	l = game->myplayer.v;
-	// have_access_e(game, map1, k, l);
-	// have_access_c(game, map2, k, l);
+	have_access_e(game, map1, l, k);
+	have_access_c(game, map2, l, k);
 	free_maps(map1, map2);
 }
