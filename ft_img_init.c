@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:32:05 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/12 21:13:58 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/17 21:05:17 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -23,7 +23,12 @@ void	ft_init(t_data *game)
 			"textures/collect.xpm", &game->i, &game->j);
 	game->img_e = mlx_xpm_file_to_image(game->mlx,
 			game->img_exit_path, &game->i, &game->j);
-	if (!game->img_c || !game->img_wall || !game->img_e || !game->img_empty)
+	game->img_p = mlx_xpm_file_to_image(game->mlx,
+			game->img_p_path, &game->i, &game->j);
+	game->img_p_left = mlx_xpm_file_to_image(game->mlx,
+			"textures/player_left.xpm", &game->i, &game->j);
+	if (!game->img_c || !game->img_wall || !game->img_e
+		|| !game->img_empty || !game->img_p || !game->img_p_left)
 	{
 		ft_printf("Error\ninvalid image\n");
 		exit(1);

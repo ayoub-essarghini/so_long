@@ -53,6 +53,7 @@ typedef struct s_data
 	int			c_count;
 	int			e_count;
 	void		*img_wall;
+	void		*img_p_left;
 	void		*img_empty;
 	void		*img_c;
 	void		*img_p;
