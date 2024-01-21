@@ -29,11 +29,14 @@ void	ft_move_up(t_data *game)
 	}
 	else if (game->map.map[i - 1][j] == 'E')
 	{
+		if (game->collected == 0)
+		{
 		game->myplayer.v--;
 		ft_refresh_game(i, j, game);
 		checkcollectable(game);
 		game->move++;
 		ft_printf("%d\n", game->move);
+		}
 	}
 }
 
@@ -55,11 +58,14 @@ void	ft_move_down(t_data *game)
 	}
 	else if (game->map.map[i + 1][j] == 'E')
 	{
+		if (game->collected == 0)
+		{
 		game->myplayer.v++;
 		ft_refresh_game(i, j, game);
 		checkcollectable(game);
 		game->move++;
 		ft_printf("%d\n", game->move);
+		}
 	}
 }
 
@@ -82,11 +88,14 @@ void	ft_move_left(t_data *game)
 	}
 	else if (game->map.map[i][j - 1] == 'E')
 	{
+		if (game->collected == 0)
+		{
 		game->myplayer.h--;
 		ft_refresh_game(i, j, game);
 		checkcollectable(game);
 		game->move++;
 		ft_printf("%d\n", game->move);
+		}
 	}
 }
 
@@ -109,11 +118,14 @@ void	ft_move_right(t_data *game)
 	}
 	else if (game->map.map[i][j + 1] == 'E')
 	{
+		if (game->collected == 0)
+		{
 		game->myplayer.h++;
 		ft_refresh_game(i, j, game);
 		checkcollectable(game);
 		game->move++;
 		ft_printf("%d\n", game->move);
+		}
 	}
 }
 

@@ -30,6 +30,10 @@ int	is_valid_map(char *str)
 		}
 		i++;
 	}
+	if (i > 0 && str[i - 1] == '\n') {
+        ft_printf("Error\ninvalid map");
+        return (0);
+    }
 	return (1);
 }
 
@@ -100,7 +104,11 @@ int	check_valid_rec(t_data *game)
 	while (i < game->img_height)
 	{
 		if (ft_strlen(game->map.map[i]) != w_len)
+		{
+			ft_printf("Error\ninvalid map");
 			return (-1);
+		}
+
 		i++;
 	}
 	return (0);

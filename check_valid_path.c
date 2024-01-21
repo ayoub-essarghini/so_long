@@ -56,7 +56,7 @@ int	can_reach_to_all_c(t_data *game, char **map, int i, int j)
 	if (i < 0 || i >= game->img_height || j < 0
 		|| j >= game->img_width
 		|| map[i][j] == '1'
-		|| map[i][j] == 'V')
+		|| map[i][j] == 'V' || map[i][j] == 'E')
 	{
 		return (0);
 	}
