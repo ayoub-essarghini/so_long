@@ -16,7 +16,7 @@ int	is_valid_map(char *str)
 	int	i;
 
 	i = 0;
-	if (!str)
+	if (!str || str[0] == '\n')
 	{
 		ft_printf("Error\ninvalid map");
 		return (0);
