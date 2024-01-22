@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:50:45 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/12 21:25:09 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:06:39 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -31,11 +31,11 @@ void	ft_move_up(t_data *game)
 	{
 		if (game->collected == 0)
 		{
-		game->myplayer.v--;
-		ft_refresh_game(i, j, game);
-		checkcollectable(game);
-		game->move++;
-		ft_printf("%d\n", game->move);
+			game->myplayer.v--;
+			ft_refresh_game(i, j, game);
+			checkcollectable(game);
+			game->move++;
+			ft_printf("%d\n", game->move);
 		}
 	}
 }
@@ -60,11 +60,11 @@ void	ft_move_down(t_data *game)
 	{
 		if (game->collected == 0)
 		{
-		game->myplayer.v++;
-		ft_refresh_game(i, j, game);
-		checkcollectable(game);
-		game->move++;
-		ft_printf("%d\n", game->move);
+			game->myplayer.v++;
+			ft_refresh_game(i, j, game);
+			checkcollectable(game);
+			game->move++;
+			ft_printf("%d\n", game->move);
 		}
 	}
 }
@@ -83,18 +83,16 @@ void	ft_move_left(t_data *game)
 		if (game->map.map[i][j - 1] == 'C')
 			game->collected--;
 		ft_refresh_game(i, j, game);
-		game->move++;
-		ft_printf("%d\n", game->move);
+		ft_printf("%d\n", ++game->move);
 	}
 	else if (game->map.map[i][j - 1] == 'E')
 	{
 		if (game->collected == 0)
 		{
-		game->myplayer.h--;
-		ft_refresh_game(i, j, game);
-		checkcollectable(game);
-		game->move++;
-		ft_printf("%d\n", game->move);
+			game->myplayer.h--;
+			ft_refresh_game(i, j, game);
+			checkcollectable(game);
+			ft_printf("%d\n", ++game->move);
 		}
 	}
 }
@@ -113,18 +111,16 @@ void	ft_move_right(t_data *game)
 		if (game->map.map[i][j + 1] == 'C')
 			game->collected--;
 		ft_refresh_game(i, j, game);
-		game->move++;
-		ft_printf("%d\n", game->move);
+		ft_printf("%d\n", ++game->move);
 	}
 	else if (game->map.map[i][j + 1] == 'E')
 	{
 		if (game->collected == 0)
 		{
-		game->myplayer.h++;
-		ft_refresh_game(i, j, game);
-		checkcollectable(game);
-		game->move++;
-		ft_printf("%d\n", game->move);
+			game->myplayer.h++;
+			ft_refresh_game(i, j, game);
+			checkcollectable(game);
+			ft_printf("%d\n", ++game->move);
 		}
 	}
 }

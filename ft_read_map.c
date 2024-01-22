@@ -6,7 +6,7 @@
 /*   By: aes-sarg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:41:06 by aes-sarg          #+#    #+#             */
-/*   Updated: 2024/01/13 17:12:44 by aes-sarg         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:01:51 by aes-sarg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -30,10 +30,11 @@ int	is_valid_map(char *str)
 		}
 		i++;
 	}
-	if (i > 0 && str[i - 1] == '\n') {
-        ft_printf("Error\ninvalid map");
-        return (0);
-    }
+	if (i > 0 && str[i - 1] == '\n')
+	{
+		ft_printf("Error\ninvalid map");
+		return (0);
+	}
 	return (1);
 }
 
@@ -108,7 +109,6 @@ int	check_valid_rec(t_data *game)
 			ft_printf("Error\ninvalid map");
 			return (-1);
 		}
-
 		i++;
 	}
 	return (0);
