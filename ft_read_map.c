@@ -113,3 +113,14 @@ int	check_valid_rec(t_data *game)
 	}
 	return (0);
 }
+
+int	is_valid_objects(t_data *game)
+{
+	if (game->p_count != 1 || game->e_count != 1
+		|| game->c_count < 1 || game->em_count < 1)
+	{
+		ft_printf("Error\ninvalid base object");
+		return (-1);
+	}
+	return (0);
+}

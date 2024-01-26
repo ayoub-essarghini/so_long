@@ -52,6 +52,7 @@ typedef struct s_data
 	int			p_count;
 	int			c_count;
 	int			e_count;
+	int			em_count;
 	void		*img_wall;
 	void		*img_p_left;
 	void		*img_empty;
@@ -66,6 +67,7 @@ int		check_lr_map(t_data *game);
 int		check_tb_map(t_data *game);
 int		check_full_map(t_data *game);
 int		check_objects(t_data *game);
+int		is_valid_objects(t_data *game);
 int		ft_strncmp(const char *s1, const char *s2, unsigned int n);
 void	check_valid_map(t_data *game);
 void	allocate_and_free_temp(t_data *game, int nbr_lines, char *temp);
